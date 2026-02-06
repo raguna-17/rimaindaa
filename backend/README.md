@@ -10,7 +10,7 @@ cd backend
 
 ### 環境変数を設定 (.env)
 cp .env.example .env
-# SECRET_KEY, DEBUG, DATABASE_URL を設定
+###### SECRET_KEY, DEBUG, DATABASE_URL を設定
 
 # Docker コンテナ起動
 docker-compose up --build

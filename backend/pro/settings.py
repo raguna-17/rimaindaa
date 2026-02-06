@@ -109,18 +109,3 @@ LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
 
-TEMPLATES = [
-    {
-        # 管理画面用テンプレート
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # admin用だけ置く
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
