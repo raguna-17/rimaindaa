@@ -4,7 +4,7 @@ Django REST Framework を用いたバックエンド API と、React + Vite に�
 JWT 認証を採用し、ユーザーごとにメモを安全に管理できます。
 
 デモURL
-https://rimaindaa.onrender.com
+https://rimaindaa-1.onrender.com/
 
 
 ## 主な機能
