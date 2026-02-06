@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User
 
-if not User.objects.filter(username="raguna").exists():
-    User.objects.create_user("raguna", "demo@example.com", "raguna")
+User.objects.get_or_create(
+    username="raguna",
+    defaults={"email":"demo@example.com", "password":"kaibasensei"}
+)
