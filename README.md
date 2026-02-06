@@ -1,37 +1,79 @@
 # Memo App
 
-簡単なメモ管理アプリ。バックエンドは Django + DRF、フロントエンドは React + Vite。
-デモURL：　https://rimaindaa.onrender.com
-（ユーザー名：raguna　、　パスワード：kaibasensei）
+Django REST Framework を用いたバックエンド API と、React + Vite によるフロントエンドで構成されたメモ管理アプリです。
+JWT 認証を採用し、ユーザーごとにメモを安全に管理できます。
 
-## ディレクトリ構成
-backend/   ← Django REST API
-frontend/  ← React フロントエンド
-README.md  ← このファイル
+デモURL
+https://rimaindaa.onrender.com
 
-## 前提環境
 
-Python 3.12 以上
+## 主な機能
 
-Node.js 20 以上
+ユーザー認証（JWT）
 
-Docker （任意だが推奨）
+メモの作成 / 取得 / 更新 / 削除（CRUD）
 
-PostgreSQL（DATABASE_URL指定）
+認証ユーザーごとのデータ分離
 
-## インストール & 起動
-## Backend
+フロントエンドとバックエンドの完全分離構成
+
+Docker を用いた開発・デプロイ対応
+
+## 技術スタック
+### Backend
+
+Python 3.12
+
+Django
+
+Django REST Framework
+
+SimpleJWT
+
+Gunicorn
+
+PostgreSQL
+
+Docker
+
+### Frontend
+
+React
+
+Vite
+
+TypeScript
+
+Docker
+
+### Infrastructure
+
+Render
+
+Docker Compose（ローカル開発用）
+
+
+
+## 環境変数
+Backend（例）
+SECRET_KEY=your-secret-key
+DEBUG=True
+DATABASE_URL=postgres://user:pass@host:port/dbname
+
+Frontend（例）
+VITE_API_URL=https://<backend-service>.onrender.com
+
+
+※ 実際の値は .env.example を参照してください。
+
+## ローカル起動（Docker 不使用）
+### Backend
 cd backend
 pip install -r requirements.txt
-##### 環境変数設定
-export SECRET_KEY="任意のキー"
-export DEBUG=True
-export DATABASE_URL="postgres://user:pass@host:port/dbname"
-##### マイグレーション & サーバ起動
 python manage.py migrate
 python manage.py runserver
 
-###### Frontend
+### Frontend
 cd frontend
 npm install
 npm run dev
@@ -39,30 +81,36 @@ npm run dev
 
 ブラウザで http://localhost:5173 にアクセス。
 
-## Docker（任意）
+## Docker を使った起動（推奨）
 docker-compose up --build
 
 
-（backendとfrontendを同時に立ち上げる場合、docker-compose.ymlに設定必要）
+backend / frontend を同時に起動します。
 
-## 使用例
+## API 概要
 
-ログイン → JWTで認証 → メモのCRUD
+エンドポイントは /api/ 配下
 
-APIは /api/ 以下に存在
+JWT による認証必須
 
-開発中は CORS を全許可
+開発環境では CORS を全許可
 
-## 開発メモ
+## テスト
 
-JWT 認証は SimpleJWT 使用
+pytest によるテスト実行可能
 
-静的ファイルは STATIC_ROOT = staticfiles/ にまとめる
-
-pytest でテスト可能
+docker-compose exec web pytest
 
 ## デプロイ
 
-Render で動作確認済み
+Render にデプロイ済み
 
-環境変数を Render 側で設定
+Backend / Frontend を別サービスとして構成
+
+環境変数は Render 側で設定
+
+## 補足
+
+静的ファイルは STATIC_ROOT=staticfiles/ に集約
+
+エントリーポイントで migrate / collectstatic を実行
