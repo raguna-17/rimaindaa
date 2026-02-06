@@ -6,20 +6,20 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('memo', '0002_remove_note_folder_remove_tag_user_remove_note_tags_and_more'),
+        ("memo", "0002_remove_note_folder_remove_tag_user_remove_note_tags_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='note',
-            options={'ordering': ['-updated_at']},
+            name="note",
+            options={"ordering": ["-updated_at"]},
         ),
         migrations.AlterModelOptions(
-            name='notification',
-            options={'ordering': ['-created_at']},
+            name="notification",
+            options={"ordering": ["-created_at"]},
         ),
         migrations.AlterModelOptions(
-            name='reminder',
-            options={'ordering': ['remind_at']},
+            name="reminder",
+            options={"ordering": ["remind_at"]},
         ),
     ]

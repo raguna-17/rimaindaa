@@ -6,11 +6,7 @@ from django.contrib.auth.models import User
 # Note（メモ本体）
 # -------------------------
 class Note(models.Model):
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name="notes"
-    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
     title = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -26,11 +22,7 @@ class Note(models.Model):
 # Reminder（リマインダー）
 # -------------------------
 class Reminder(models.Model):
-    note = models.ForeignKey(
-        Note,
-        on_delete=models.CASCADE,
-        related_name="reminders"
-    )
+    note = models.ForeignKey(Note, on_delete=models.CASCADE, related_name="reminders")
     remind_at = models.DateTimeField()
     is_done = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -47,16 +39,14 @@ class Reminder(models.Model):
 # -------------------------
 class Notification(models.Model):
     user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name="notifications"
+        User, on_delete=models.CASCADE, related_name="notifications"
     )
     reminder = models.ForeignKey(
         Reminder,
         on_delete=models.CASCADE,
         related_name="notifications",
         null=True,
-        blank=True
+        blank=True,
     )
     message = models.CharField(max_length=255)
     is_read = models.BooleanField(default=False)

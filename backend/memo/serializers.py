@@ -8,7 +8,7 @@ from .models import Note, Reminder, Notification
 class NoteSimpleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ['id', 'title']
+        fields = ["id", "title"]
 
 
 # -------------------------
@@ -17,20 +17,18 @@ class NoteSimpleSerializer(serializers.ModelSerializer):
 class ReminderSerializer(serializers.ModelSerializer):
     note = NoteSimpleSerializer(read_only=True)
     note_id = serializers.PrimaryKeyRelatedField(
-        queryset=Note.objects.all(),
-        source='note',
-        write_only=True
+        queryset=Note.objects.all(), source="note", write_only=True
     )
 
     class Meta:
         model = Reminder
         fields = [
-            'id',
-            'note',
-            'note_id',
-            'remind_at',
-            'is_done',
-            'created_at',
+            "id",
+            "note",
+            "note_id",
+            "remind_at",
+            "is_done",
+            "created_at",
         ]
 
 
@@ -43,9 +41,9 @@ class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notification
         fields = [
-            'id',
-            'message',
-            'is_read',
-            'created_at',
-            'reminder',
+            "id",
+            "message",
+            "is_read",
+            "created_at",
+            "reminder",
         ]

@@ -38,3 +38,7 @@ jobs:
       - name: Lint code
         run: |
           flake8 backend/memo
+
+      - name: Check formatting with black
+        run: |
+          black --check backend

@@ -6,34 +6,34 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('memo', '0001_initial'),
+        ("memo", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='note',
-            name='folder',
+            model_name="note",
+            name="folder",
         ),
         migrations.RemoveField(
-            model_name='tag',
-            name='user',
+            model_name="tag",
+            name="user",
         ),
         migrations.RemoveField(
-            model_name='note',
-            name='tags',
+            model_name="note",
+            name="tags",
         ),
         migrations.RemoveField(
-            model_name='note',
-            name='content',
+            model_name="note",
+            name="content",
         ),
         migrations.RemoveField(
-            model_name='note',
-            name='is_archived',
+            model_name="note",
+            name="is_archived",
         ),
         migrations.DeleteModel(
-            name='Folder',
+            name="Folder",
         ),
         migrations.DeleteModel(
-            name='Tag',
+            name="Tag",
         ),
     ]

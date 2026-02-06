@@ -10,3 +10,6 @@ django-cors-headers
 pytest 
 pytest-django
 pytest-cov
+black
+flake8
+flake8-bugbear

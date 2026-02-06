@@ -2,7 +2,12 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
 from .models import Note, Reminder, Notification
-from .serializers import NoteSimpleSerializer, ReminderSerializer, NotificationSerializer
+from .serializers import (
+    NoteSimpleSerializer,
+    ReminderSerializer,
+    NotificationSerializer,
+)
+
 
 # -------------------------
 # Note
@@ -29,11 +34,13 @@ class ReminderViewSet(viewsets.ModelViewSet):
         return Reminder.objects.filter(note__user=self.request.user)
 
     def perform_create(self, serializer):
-        note = serializer.validated_data['note']
+        note = serializer.validated_data["note"]
 
         # 他人のNoteを指定してきたら拒否
         if note.user != self.request.user:
-            raise PermissionDenied("You cannot create a reminder for someone else's note.")
+            raise PermissionDenied(
+                "You cannot create a reminder for someone else's note."
+            )
 
         reminder = serializer.save()
 
@@ -41,7 +48,7 @@ class ReminderViewSet(viewsets.ModelViewSet):
         Notification.objects.create(
             user=self.request.user,
             reminder=reminder,
-            message=f"Reminder: {note.title} at {reminder.remind_at}"
+            message=f"Reminder: {note.title} at {reminder.remind_at}",
         )
 
 
