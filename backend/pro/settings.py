@@ -41,7 +41,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # 開発中だけ
+CORS_ALLOW_ALL_ORIGINS = False
 ROOT_URLCONF = 'pro.urls'
 
 
@@ -103,9 +103,5 @@ SIMPLE_JWT = {
     'SIGNING_KEY': SECRET_KEY,
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
-
-LOGIN_REDIRECT_URL = '/home/'
-LOGOUT_REDIRECT_URL = '/login/'
-LOGIN_URL = '/login/'
 
 
