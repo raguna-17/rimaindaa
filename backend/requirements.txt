@@ -1,0 +1,12 @@
+﻿Django>=5.2
+gunicorn
+psycopg2-binary
+python-decouple
+dj-database-url
+djangorestframework
+djangorestframework-simplejwt
+whitenoise
+django-cors-headers
+pytest 
+pytest-django
+pytest-cov
