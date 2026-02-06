@@ -25,7 +25,7 @@ jobs:
           --health-retries 5
 
     env:
-      DJANGO_SETTINGS_MODULE: backend.settings
+      DJANGO_SETTINGS_MODULE: pro.settings
       PYTHONPATH: .
 
     steps:
@@ -42,11 +42,12 @@ jobs:
           pip install -r backend/requirements.txt
           pip install pytest pytest-django pytest-cov
 
-      - name: Run tests with coverage
+      - name: Run tests
         run: |
-          pytest --cov=memo --cov-report=term-missing
+          cd backend
+          pytest
+
 
       - name: Lint code
         run: |
-          pip install flake8
-          flake8 memo
+          flake8 backend/memo
