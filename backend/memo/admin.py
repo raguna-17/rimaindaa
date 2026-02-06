@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Note, Reminder, Notification
 
+from .models import Note, Reminder, Notification
 
 
 # -------------------------
@@ -13,6 +13,7 @@ class NoteAdmin(admin.ModelAdmin):
     search_fields = ("title",)
     ordering = ("-updated_at",)
 
+
 # -------------------------
 # Reminder Admin
 # -------------------------
@@ -22,6 +23,7 @@ class ReminderAdmin(admin.ModelAdmin):
     list_filter = ("is_done", "remind_at")
     search_fields = ("note__title",)
     ordering = ("remind_at",)
+
 
 # -------------------------
 # Notification Admin
