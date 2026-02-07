@@ -4,7 +4,9 @@ import axios from "axios";
 type Note = { id: number; title: string };
 type Reminder = { id: number; note: Note; remind_at: string };
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "https://rimaindaa.onrender.com/api";
+
+
 
 function App() {
   // ログイン
