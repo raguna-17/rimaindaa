@@ -3,7 +3,7 @@ import os
 import django
 
 # Django を初期化
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")  # ←自分の settings に置き換える
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pro.settings")  # ←自分の settings に置き換える
 django.setup()
 
 from django.contrib.auth import get_user_model
@@ -18,5 +18,5 @@ User.objects.get_or_create(
 
 user = User.objects.get(username="raguna")
 if not user.has_usable_password():
-    user.set_password("kaibasensei")
+    user.set_password("raguna")
     user.save()
