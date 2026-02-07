@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_URL;
+// 本番バックエンドの URL を直書き
+const API_BASE = "https://rimaindaa.onrender.com/api";
+
 console.log("API_BASE:", API_BASE);
 
 const client = axios.create({
