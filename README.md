@@ -7,6 +7,9 @@ JWT 認証を採用し、ユーザーごとにメモを安全に管理できま�
 https://rimaindaa-1.onrender.com/
 
 
+![alt text](image.png)
+
+
 ## 主な機能
 
 ユーザー認証（JWT）
